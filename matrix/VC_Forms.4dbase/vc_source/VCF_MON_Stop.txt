@@ -1,0 +1,12 @@
+﻿//%attributes = {"lang":"en","invisible":true,"shared":true,"executedOnServer":true} comment added and reserved by 4D.
+// --[HEADERSTART]-------------------------------------
+// User name (OS): Joshua Fletcher
+// Date and time: 04/11/12, 18:13:57
+// ----------------------------------------------------
+// Description:
+//   Stops the export monitor process.
+//
+//   Note: executes on server.
+//
+// --[HEADEREND]---------------------------------------
+<>VCF_StopMonitor_f:=True

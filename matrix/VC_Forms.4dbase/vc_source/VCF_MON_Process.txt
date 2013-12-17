@@ -1,0 +1,38 @@
+﻿//%attributes = {"lang":"en"} comment added and reserved by 4D.
+C_LONGINT(<>VCF_LastFormStamp_l)
+
+C_TEXT($lastFromStamp_t)
+C_LONGINT($error_l)
+
+// Set up error handling module.
+UTIL_ERR_Startup 
+
+// Set up progress bar module.
+PROG_Startup 
+
+
+// I load this preference once, outside the loop, so
+// that I don't need to connect to the external database
+// at the beginning of every loop.  The only time I
+// connect to the external database is if the stamp changes.
+$error_l:=VC_EXT_PrefGet (<>VCF_StampLabel_t;->$lastFromStamp_t)
+
+If ($error_l=0)
+
+<>VCF_LastFormStamp_l:=Num($lastFromStamp_t)
+
+Repeat 
+
+VCF_FORM_HandleEvents 
+
+// This method detects if the database is quitting,
+// in addition to delaying the process.
+VCF_MON_DelayProcess 
+
+IDLE
+
+Until (<>VCF_StopMonitor_f)
+
+Else 
+UTIL_ERR_HandleError ($error_l;"VC_Forms";Current method name)
+End if 

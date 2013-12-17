@@ -1,0 +1,88 @@
+﻿//%attributes = {"lang":"en"} comment added and reserved by 4D.
+// --[HEADERSTART]-------------------------------------
+// Date and time: 08/19/13
+//
+//   This is mainly a wrapper method so that I can
+//   re-use the same loop for table forms and project
+//   forms.
+//
+// --[HEADEREND]---------------------------------------
+C_OBJECT($1;$parameterList_o)
+
+C_OBJECT($0;$error_o)
+
+C_LONGINT($currentTable_l)
+C_POINTER($currentTable_p)
+C_LONGINT($currentForm_l;$numForms_l;$filterStamp_l)
+C_TEXT($currentFormName_t)
+C_LONGINT($error_l)
+
+C_OBJECT($currentForm_o)
+
+ARRAY TEXT($formNames_at;0)
+
+$parameterList_o:=$1
+
+$filterStamp_l:=OB Get($parameterList_o;<>VCF_NAME_ParamStamp_t)
+
+
+// Get the forms. How we do that depends on if it's table forms or project forms.
+If (OB Is defined($parameterList_o;<>VCF_NAME_ParamTableNum_t))
+// Table forms.
+$currentTable_l:=OB Get($parameterList_o;<>VCF_NAME_ParamTableNum_t)
+$currentTable_p:=Table($currentTable_l)
+FORM GET NAMES($currentTable_p->;$formNames_at;"";$filterStamp_l;*)
+Else 
+// Project forms.
+FORM GET NAMES($formNames_at;"";$filterStamp_l;*)
+End if 
+
+
+$numForms_l:=Size of array($formNames_at)
+$currentForm_l:=1
+
+
+// Loop over forms
+While (($currentForm_l<=$numForms_l) & ($error_l=0))
+CLEAR VARIABLE($currentForm_o)
+
+$currentFormName_t:=$formNames_at{$currentForm_l}
+
+// A C_OBJECT must have at least one property otherwise it will be undefined.
+// (the formName will be set again in VCF_FORM_FormToJSON)
+OB SET($currentForm_o;"formName";$currentFormName_t)
+
+If ($currentTable_l>0)
+OB SET($parameterList_o;<>VCF_NAME_ParamTableNum_t;$currentTable_l)
+End if 
+OB SET($parameterList_o;<>VCF_NAME_ParamFormName_t;$currentFormName_t)
+OB SET($parameterList_o;<>VCF_NAME_ParamForm_t;$currentForm_o)
+
+
+// Convert form to JSON.
+$error_o:=VCF_FORM_FormToJSON ($parameterList_o)
+$error_l:=OB Get($error_o;<>VCF_NAME_ErrorCode_t)
+
+
+If ($error_l=0)
+// Save form-as-JSON to disk.
+$error_o:=VCF_FORM_Save ($currentForm_o)
+$error_l:=OB Get($error_o;<>VCF_NAME_ErrorCode_t)
+End if 
+
+
+// Only increment if there was no error (in case I want to refer back to where I failed).
+If ($error_l=0)
+$currentForm_l:=$currentForm_l+1
+End if 
+
+
+End while // End loop over forms.
+
+OB SET($error_o;<>VCF_NAME_ErrorCode_t;$error_l)
+
+If ($error_l=0)
+OB SET($error_o;<>VCF_NAME_ParamStamp_t;$filterStamp_l)
+End if 
+
+$0:=$error_o

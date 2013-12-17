@@ -1,0 +1,34 @@
+﻿//%attributes = {"lang":"en","shared":true,"executedOnServer":true} comment added and reserved by 4D.
+C_BOOLEAN(<>VCF_StartupExecuted_f)
+
+If (<>VCF_StartupExecuted_f=False)
+// Set this to True ASAP in case other processes try to execute it.
+<>VCF_StartupExecuted_f:=True
+
+C_LONGINT(<>VCF_LastFormStamp_l)
+C_BOOLEAN(<>VCF_StopMonitor_f)
+
+VCF_STARTUP_Set4DConstantLabels 
+VCF_STARTUP_SetObjectNames 
+
+C_TEXT($externalDataFile_t;$externalDataFolderName_t;$externalDataFolderPath_t)
+C_LONGINT($error_l)
+
+$externalDataFolderName_t:="vc_data"
+$externalDataFolderPath_t:=Get 4D folder(Database folder;*)+$externalDataFolderName_t
+$externalDataFile_t:="VC_Data"
+
+// Path to external database to store metadata.
+C_TEXT(<>VC_DataFile_t)
+<>VC_DataFile_t:=$externalDataFolderPath_t+Folder separator+$externalDataFile_t
+
+// Constant for the external database, this is the name of the last stamp preference.
+C_TEXT(<>VCF_StampLabel_t)
+<>VCF_StampLabel_t:="Last Form Stamp"
+
+// Set the initial stamp value, but don't overwrite if it already exists.
+$error_l:=VC_EXT_PrefSet (<>VCF_StampLabel_t;"0";False)
+
+VCF_MON_Start 
+
+End if 

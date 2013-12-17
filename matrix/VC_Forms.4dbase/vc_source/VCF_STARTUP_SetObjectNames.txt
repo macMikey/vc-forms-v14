@@ -1,0 +1,16 @@
+﻿//%attributes = {"lang":"en"} comment added and reserved by 4D.
+// Names for various name/value pairs used in this database.
+// This is done to avoid "magic numbers".
+C_TEXT(<>VCF_NAME_ParamTableNum_t)
+C_TEXT(<>VCF_NAME_ParamFormName_t)
+C_TEXT(<>VCF_NAME_ParamForm_t)
+C_TEXT(<>VCF_NAME_ParamStamp_t)
+
+<>VCF_NAME_ParamTableNum_t:="tableNum"
+<>VCF_NAME_ParamFormName_t:="formName"
+<>VCF_NAME_ParamForm_t:="theForm"
+<>VCF_NAME_ParamStamp_t:="filterStamp"
+
+C_TEXT(<>VCF_NAME_ErrorCode_t)
+
+<>VCF_NAME_ErrorCode_t:="errorCode"

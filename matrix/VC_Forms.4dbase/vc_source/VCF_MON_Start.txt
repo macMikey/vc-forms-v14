@@ -1,0 +1,22 @@
+﻿//%attributes = {"lang":"en","invisible":true,"shared":true,"executedOnServer":true} comment added and reserved by 4D.
+// --[HEADERSTART]-------------------------------------
+// User name (OS): jfletcher
+// Date and time: 04/06/12, 15:01:43
+// ----------------------------------------------------
+// Description:
+//   Start stored procedure to monitor form changes.
+//
+//   Note: there can be only one.
+//   Note: executes on server.
+//
+// --[HEADEREND]---------------------------------------
+C_LONGINT($stack_l;$PID_l)
+C_TEXT($methodName_t;$processName_t)
+
+$stack_l:=1024*1024
+$methodName_t:="VCF_MON_Process"
+$processName_t:="VC_Form process"
+
+<>VCF_StopMonitor_f:=False
+
+$PID_l:=New process($methodName_t;$stack_l;$processName_t;*)

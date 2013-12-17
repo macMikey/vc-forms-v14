@@ -1,0 +1,30 @@
+﻿//%attributes = {"lang":"en"} comment added and reserved by 4D.
+C_OBJECT($1;$formJSONObject_o)
+
+C_OBJECT($0;$error_o)
+
+C_TEXT($exportRoot_t;$fileName_t;$filePath_t;$formTable_t;$formName_t;$formJSONContent_T)
+C_LONGINT($error_l)
+
+$formJSONObject_o:=$1
+
+$formName_t:=OB Get($formJSONObject_o;"formName")
+
+$exportRoot_t:=Get 4D folder(Database folder;*)+"vc_forms"+Folder separator
+
+If (OB Is defined($formJSONObject_o;"_table"))
+$formTable_t:=OB Get($formJSONObject_o;"_table")
+$fileName_t:=$formTable_t+Folder separator
+End if 
+
+$fileName_t:=$fileName_t+$formName_t+".json"
+$filePath_t:=$exportRoot_t+$fileName_t
+CREATE FOLDER($filePath_t;*)
+
+$formJSONContent_T:=JSON Stringify($formJSONObject_o;*)
+
+TEXT TO DOCUMENT($filePath_t;$formJSONContent_T;"UTF-8";Document unchanged)
+
+OB SET($error_o;<>VCF_NAME_ErrorCode_t;$error_l)
+
+$0:=$error_o

@@ -1,0 +1,10 @@
+﻿//%attributes = {"lang":"en"} comment added and reserved by 4D.
+C_LONGINT($found_l)
+ARRAY TEXT($components_at;0)
+COMPONENT LIST($components_at)
+$found_l:=Find in array($components_at;"VC_Framework")
+If ($found_l>0)
+EXECUTE METHOD("VC_STARTUP_OnStartup")
+End if 
+
+VCF_STARTUP_OnStartup 

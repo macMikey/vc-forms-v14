@@ -1,0 +1,42 @@
+﻿//%attributes = {"lang":"en"} comment added and reserved by 4D.
+// Create a test form with all object types (just copy it from my research database).
+
+
+
+
+// New table in external data file VC_Forms
+// VCF_FORM_HandleEvents switch from accessing forms directly to accessing the vc_forms table.
+// The direct access will be done by the monitor process(s).
+
+// Will need to validate table names and object names
+// -NO! Table names and form names only because those are used for the file name. If I validate objects names, it has to be for JS, no 4D, not file system.
+// Also validate is the wrong term: I just need to santize them for disk storage, JSON allows anything.
+// Maybe a warning to let the use know this has happened. Maybe a log entry for each one.
+
+// Background process loops over tables and FORM GET NAMES, creates records and/or marks them for export.
+
+// Export process loops over records to export, grabs all objects, generates JSON, exports the file.
+
+// I put the objects in an object called "objects" because of potential namespace conflicts. If a form object has the same name as a form property, the form property would get overwritten without this.
+
+// Perhaps take a pass through all the property names to make sure they make sense.
+// -Make them IP constants?  I only use them in one place for the most part though.
+
+// Each object key should be formatted to confrom with JS strings.  The real 4D object name is already embedded in the object so they don't have to match.
+// NO! According to the spec, almost anything is allowed: http://www.json.org/
+// http://google-styleguide.googlecode.com/svn/trunk/jsoncstyleguide.xml#Property_Name_Guidelines
+// UTIL_STRING_toJSON - converts string to JSON property name format; does not generate JSON!
+// I don't think it's even worth it to implement a method that checks for control chars.
+
+// Postponed Enhancements:
+
+// LISTBOX Get@
+
+// Every attribute that's an ID and a label maybe should be an object. E.g.:
+//   "action" : {
+//      "id" : "0"
+//      "label": "blah"
+//   }
+// In addition metadata should be separated from actual properties (e.g. form table vs Form Properties).
+// So...if I change the JSON structure do I need to trigger a full form export when they upgrade?
+// Should I save the version somewhere (in vc_data)?

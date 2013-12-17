@@ -1,0 +1,57 @@
+﻿//%attributes = {"lang":"en"} comment added and reserved by 4D.
+C_LONGINT($currentTable_l;$error_l;$currentFormStamp_l)
+C_LONGINT($i;$numTables_l)
+
+C_OBJECT($parameterList_o)
+C_OBJECT($error_o)
+
+ARRAY LONGINT($tableNumbers_al;0)
+
+// IMPORTANT: you MUST preserve this value until all changes have been exported.
+// FORM GET NAMES will be called for project forms and every table in the database.
+// Say you do Poject forms first; if you use the output stamp from doing those forms as the input stamp for the table forms, you will miss all the changes in between.
+// You have to pass the same stamp until one pass is complete.  Only then should you save the output stamp.
+OB SET($parameterList_o;<>VCF_NAME_ParamStamp_t;<>VCF_LastFormStamp_l)
+
+// Project forms.
+$error_o:=VCF_FORM_GetForms ($parameterList_o)
+$error_l:=OB Get($error_o;<>VCF_NAME_ErrorCode_t)
+
+// Table forms.
+If ($error_l=0)
+Begin SQL
+select TABLE_ID
+from _USER_TABLES
+INTO :$tableNumbers_al;
+End SQL
+
+$numTables_l:=Size of array($tableNumbers_al)
+$i:=1
+
+// Loop over tables.
+While (($i<=$numTables_l) & ($error_l=0))
+
+$currentTable_l:=$tableNumbers_al{$i}
+OB SET($parameterList_o;<>VCF_NAME_ParamTableNum_t;$currentTable_l)
+$error_o:=VCF_FORM_GetForms ($parameterList_o)
+$error_l:=OB Get($error_o;<>VCF_NAME_ErrorCode_t)
+
+// Only increment if there was no error (in case I want to refer back to where I failed).
+If ($error_l=0)
+$i:=$i+1
+End if 
+
+End while // End loop over tables.
+End if 
+
+If ($error_l=0)
+$currentFormStamp_l:=OB Get($error_o;<>VCF_NAME_ParamStamp_t)
+
+If (<>VCF_LastFormStamp_l#$currentFormStamp_l)
+$error_l:=VC_EXT_PrefSet (<>VCF_StampLabel_t;String($currentFormStamp_l))
+If ($error_l=0)
+// Only update the stamp if the save was successful.
+<>VCF_LastFormStamp_l:=$currentFormStamp_l
+End if 
+End if 
+End if 
