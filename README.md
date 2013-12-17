@@ -20,8 +20,8 @@ The VC_Forms component will call these methods prior to saving/deleting the meth
 
 ## Contents
 
-* The [Components](https://github.com/4D/vc-forms-v14tree/master/Components) folder contains the "VC_Forms.4dbase" component suitable for installation in any [4D v14](http://www.4d.com/products/4dv14.html) database.
-* The [matrix](https://github.com/4D/vc-forms-v14tree/master/matrix) folder contains the component source code.
+* The [Components](https://github.com/4D/vc-forms-v14/tree/master/Components) folder contains the "VC_Forms.4dbase" component suitable for installation in any [4D v14](http://www.4d.com/products/4dv14.html) database.
+* The [matrix](https://github.com/4D/vc-forms-v14/tree/master/matrix) folder contains the component source code.
 
 ## Usage
 
