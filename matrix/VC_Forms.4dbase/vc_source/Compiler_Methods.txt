@@ -1,88 +1,36 @@
 ﻿//%attributes = {"lang":"en","invisible":true} comment added and reserved by 4D.
-C_LONGINT(PROG_Close ;$1)
-C_LONGINT(PROG_Create ;$0)
-C_TEXT(PROG_Create ;$1)
-C_LONGINT(PROG_Create ;$2)
-C_LONGINT(PROG_Create ;$3)
-C_LONGINT(PROG_Create ;$4)
-C_REAL(PROG_Create ;$5)
-C_TEXT(PROG_Create ;$6)
-C_BOOLEAN(PROG_IsRequired ;$0)
-C_LONGINT(PROG_IsRequired ;$1)
-C_REAL(PROG_IsRequired ;$2)
-C_LONGINT(PROG_IsRequired ;$3)
-C_LONGINT(PROG_Reset ;$1)
-C_LONGINT(PROG_Update ;$1)
-C_REAL(PROG_Update ;$2)
-C_LONGINT(PROG_Update ;$3)
-C_LONGINT(PROG_Update ;$4)
-C_TEXT(PROG_Update ;$5)
-C_TEXT(PROG_Update ;$6)
-C_LONGINT(PROG_Update ;$7)
 C_TEXT(UTIL_CONV_RGBColorToText ;$0)
 C_LONGINT(UTIL_CONV_RGBColorToText ;$1)
 C_TEXT(VCF_OBJ_SetPropWithLabel ;$1)
 C_TEXT(VCF_OBJ_SetPropWithLabel ;$2)
 C_OBJECT(VCF_OBJ_SetPropWithLabel ;$3)
-
-//UTIL_IsMac
 C_BOOLEAN(UTIL_IsMac ;$0)
-
-//UTIL_IsIdentifier
 C_BOOLEAN(UTIL_IsIdentifier ;$0)
 C_TEXT(UTIL_IsIdentifier ;$1)
-
-//UTIL_IsComponent
 C_BOOLEAN(UTIL_IsComponent ;$0)
-
-//UTIL_Get4DProcessID
 C_LONGINT(UTIL_Get4DProcessID ;$0)
-
-//UTIL_FILE_GetParent
 C_TEXT(UTIL_FILE_GetParent ;$0)
 C_TEXT(UTIL_FILE_GetParent ;$1)
-
-//UTIL_FILE_GetDatabaseName
 C_TEXT(UTIL_FILE_GetDatabaseName ;$0)
-
-//UTIL_FILE_DeleteFolder
 C_TEXT(UTIL_FILE_DeleteFolder ;$1)
-
-//UTIL_ERR_HandlerRemove
 C_LONGINT(UTIL_ERR_HandlerRemove ;$0)
-
-//UTIL_ERR_HandlerInstall
 C_TEXT(UTIL_ERR_HandlerInstall ;$1)
-
-//UTIL_ERR_HandleError
 C_LONGINT(UTIL_ERR_HandleError ;$1)
 C_TEXT(UTIL_ERR_HandleError ;$2)
 C_TEXT(UTIL_ERR_HandleError ;$3)
 C_TEXT(UTIL_ERR_HandleError ;$4)
-
-//UTIL_ERR_GetErrorMessage
 C_TEXT(UTIL_ERR_GetErrorMessage ;$0)
 C_LONGINT(UTIL_ERR_GetErrorMessage ;$1)
-
-//UTIL_ARRAY_TableAddColumn
 C_POINTER(UTIL_ARRAY_TableAddColumn ;$1)
 C_POINTER(UTIL_ARRAY_TableAddColumn ;$2)
-
-//VC_EXT_PrefSet
 C_LONGINT(VC_EXT_PrefSet ;$0)
 C_TEXT(VC_EXT_PrefSet ;$1)
 C_TEXT(VC_EXT_PrefSet ;$2)
 C_BOOLEAN(VC_EXT_PrefSet ;$3)
-
-//VC_EXT_PrefGet
 C_LONGINT(VC_EXT_PrefGet ;$0)
 C_TEXT(VC_EXT_PrefGet ;$1)
 C_POINTER(VC_EXT_PrefGet ;$2)
-
-//VC_EXT_Open
 C_LONGINT(VC_EXT_Open ;$0)
-
-//VC_EXT_LogInsert
 C_LONGINT(VC_EXT_LogInsert ;$0)
 C_TEXT(VC_EXT_LogInsert ;$1)
 C_LONGINT(VC_EXT_LogInsert ;$2)
@@ -92,31 +40,16 @@ C_TEXT(VC_EXT_LogInsert ;$5)
 C_BOOLEAN(VC_EXT_LogInsert ;$6)
 C_BOOLEAN(VC_EXT_LogInsert ;$7)
 C_BOOLEAN(VC_EXT_LogInsert ;$8)
-
-//VC_EXT_LogDelete
 C_LONGINT(VC_EXT_LogDelete ;$0)
 C_TEXT(VC_EXT_LogDelete ;$1)
-
-//VC_EXT_Close
 C_LONGINT(VC_EXT_Close ;$0)
-
-//VCF_FORM_Save
+C_OBJECT(VCF_FORM_Save ;$0)
 C_OBJECT(VCF_FORM_Save ;$1)
-
-//VCF_FORM_FormToJSON
 C_OBJECT(VCF_FORM_FormToJSON ;$0)
 C_OBJECT(VCF_FORM_FormToJSON ;$1)
-
-//VCF_FORM_Save
-C_OBJECT(VCF_FORM_Save ;$0)
-
-//VCF_FORM_GetForms
 C_OBJECT(VCF_FORM_GetForms ;$0)
 C_OBJECT(VCF_FORM_GetForms ;$1)
-
-//VCF_OBJ_SetEvents
 C_OBJECT(VCF_OBJ_SetEvents ;$1)
 C_TEXT(VCF_OBJ_SetEvents ;$2)
-
-//VCF_MON_DelayProcess
 C_LONGINT(VCF_MON_DelayProcess ;$1)
+C_BOOLEAN(UTIL_ProgStartup ;$0)

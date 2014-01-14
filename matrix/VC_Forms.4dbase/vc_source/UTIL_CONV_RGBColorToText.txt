@@ -1,4 +1,4 @@
-﻿//%attributes = {"lang":"en"} comment added and reserved by 4D.
+﻿//%attributes = {"lang":"en","invisible":true} comment added and reserved by 4D.
 // --[HEADERSTART]-------------------------------------
 // Date and time: 08/15/13
 //   Convert integer RGB color value to 4 byte hex string.

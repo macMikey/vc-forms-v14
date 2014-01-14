@@ -1,6 +1,8 @@
 ﻿//%attributes = {"lang":"en"} comment added and reserved by 4D.
 C_LONGINT(<>VCF_LastFormStamp_l)
 
+C_BOOLEAN(VC_ProgInstalled_f)
+
 C_TEXT($lastFromStamp_t)
 C_LONGINT($error_l)
 
@@ -8,8 +10,7 @@ C_LONGINT($error_l)
 UTIL_ERR_Startup 
 
 // Set up progress bar module.
-PROG_Startup 
-
+VC_ProgInstalled_f:=UTIL_ProgStartup 
 
 // I load this preference once, outside the loop, so
 // that I don't need to connect to the external database
