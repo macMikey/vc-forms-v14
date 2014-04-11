@@ -1,0 +1,49 @@
+﻿//%attributes = {"lang":"en"} comment added and reserved by 4D.
+// --[HEADERSTART]-------------------------------------
+// User name (OS): Joshua Fletcher
+// Date and time: 04/11/14, 16:19:54
+// ----------------------------------------------------
+// Description:
+//   THIS IMPLEMENTATION IS A TEMPORARY WORKAROUND.
+//
+//   VC_Framework is required in order to use VC_Forms.
+//   VC_Forms needs to make sure VC_Framework is ready
+//   to use before kicking off any code.
+//
+//   I consider this implementation a bit of a hack.
+//   Eventually I want to have a shared method in
+//   VC_Framework that any other component can call to
+//   see if it's ready.
+// --[HEADEREND]---------------------------------------
+C_BOOLEAN($vcFrameworkReady_f)
+
+C_BOOLEAN($done_f)
+C_LONGINT($attempts_l;$maxAttempts_l)
+
+$attempts_l:=1
+$maxAttempts_l:=30
+$done_f:=False
+
+If (UTIL_IsComponentInstalled ("VC_Framework"))
+Repeat 
+$attempts_l:=$attempts_l+1
+
+If ($attempts_l<=$maxAttempts_l)
+
+If (Test path name(Get 4D folder(Database folder;*)+"vc_data"+Folder separator+"VC_Data.4DD")=Is a document)
+$vcFrameworkReady_f:=True
+$done_f:=True
+Else 
+IDLE
+End if 
+
+Else 
+$done_f:=True
+End if 
+
+Until ($done_f)
+Else 
+$vcFrameworkReady_f:=False
+End if 
+
+$0:=$vcFrameworkReady_f

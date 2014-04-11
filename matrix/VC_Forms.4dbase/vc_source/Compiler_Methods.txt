@@ -53,3 +53,10 @@ C_OBJECT(VCF_OBJ_SetEvents ;$1)
 C_TEXT(VCF_OBJ_SetEvents ;$2)
 C_LONGINT(VCF_MON_DelayProcess ;$1)
 C_BOOLEAN(UTIL_ProgStartup ;$0)
+
+//VCF_STARTUP_IsVCFrameworkReady
+C_BOOLEAN(VCF_STARTUP_IsVCFrameworkReady ;$0)
+
+//UTIL_IsComponentInstalled
+C_BOOLEAN(UTIL_IsComponentInstalled ;$0)
+C_TEXT(UTIL_IsComponentInstalled ;$1)

@@ -1,5 +1,19 @@
 ﻿//%attributes = {"lang":"en","shared":true,"executedOnServer":true} comment added and reserved by 4D.
+// --[HEADERSTART]-------------------------------------
+// User name (OS): Joshua Fletcher
+// Date and time: 04/11/14, 16:34:50
+// ----------------------------------------------------
+// Description:
+//   Startup code for VC_Forms.
+//
+//   IMPORTANT NOTE: VC_Framework must be functional
+//   for VC_Forms to work.
+//
+// --[HEADEREND]---------------------------------------
 C_BOOLEAN(<>VCF_StartupExecuted_f)
+
+// Check to make sure VC_Framework is ready first.
+If (VCF_STARTUP_IsVCFrameworkReady )
 
 If (<>VCF_StartupExecuted_f=False)
 // Set this to True ASAP in case other processes try to execute it.
@@ -31,4 +45,12 @@ $error_l:=VC_EXT_PrefSet (<>VCF_StampLabel_t;"0";False)
 
 VCF_MON_Start 
 
+End if 
+
+Else 
+// This must fail silently for the moment because 4D only
+// executes on macro call at a time and for the moment
+// VC_Forms is going first. I need to let this fail so the
+//  VC_Framework macro can run.
+// ALERT("Startup failed, A functioning VC_Framework is required to use VC_Forms")
 End if 
