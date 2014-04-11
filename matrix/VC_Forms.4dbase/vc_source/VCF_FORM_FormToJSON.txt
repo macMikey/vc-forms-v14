@@ -38,6 +38,7 @@ $currentForm_o:=OB Get($parameterList_o;<>VCF_NAME_ParamForm_t)
 
 OB SET($currentForm_o;"formName";$currentFormName_t)
 
+// This block is to access Form Properties.
 If (OB Is defined($parameterList_o;<>VCF_NAME_ParamTableNum_t))
 // Table form.
 $currentTable_l:=OB Get($parameterList_o;<>VCF_NAME_ParamTableNum_t)

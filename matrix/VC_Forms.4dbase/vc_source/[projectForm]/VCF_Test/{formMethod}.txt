@@ -1,0 +1,12 @@
+﻿//%attributes = {"lang":"en"} comment added and reserved by 4D.
+// User name (OS): Joshua Fletcher
+// Date and time: 04/11/14, 12:10:10
+// Thomas reported a problem with dynamic variables today. I have not reproduced it yet, have asked for clarification.
+C_LONGINT($formEvent_l)
+C_POINTER($objectPointer_p)
+$formEvent_l:=Form event
+
+Case of 
+: ($formEvent_l=On Load)
+OBJECT DUPLICATE(*;"Variable3";"test";$objectPointer_p;"";10;10)
+End case 

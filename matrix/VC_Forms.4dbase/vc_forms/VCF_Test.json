@@ -6,6 +6,120 @@
 	"_fixedWidth": false,
 	"_fixedHeight": false,
 	"windowTitle": "",
+	"events": [
+		{
+			"event": 1,
+			"event-label": "On Load"
+		},
+		{
+			"event": 2,
+			"event-label": ""
+		},
+		{
+			"event": 3,
+			"event-label": "On Validate"
+		},
+		{
+			"event": 4,
+			"event-label": "On Clicked"
+		},
+		{
+			"event": 5,
+			"event-label": "On Header"
+		},
+		{
+			"event": 6,
+			"event-label": "On Printing Break"
+		},
+		{
+			"event": 7,
+			"event-label": "On Printing Footer"
+		},
+		{
+			"event": 8,
+			"event-label": "On Display Detail"
+		},
+		{
+			"event": 9,
+			"event-label": ""
+		},
+		{
+			"event": 10,
+			"event-label": "On Outside Call"
+		},
+		{
+			"event": 13,
+			"event-label": "On Double Clicked"
+		},
+		{
+			"event": 16,
+			"event-label": "On Drop"
+		},
+		{
+			"event": 18,
+			"event-label": "On Menu Selected"
+		},
+		{
+			"event": 19,
+			"event-label": "On Plug in Area"
+		},
+		{
+			"event": 20,
+			"event-label": "On Data Change"
+		},
+		{
+			"event": 21,
+			"event-label": "On Drag Over"
+		},
+		{
+			"event": 23,
+			"event-label": "On Printing Detail"
+		},
+		{
+			"event": 25,
+			"event-label": "On Open Detail"
+		},
+		{
+			"event": 26,
+			"event-label": "On Close Detail"
+		},
+		{
+			"event": 27,
+			"event-label": "On Timer"
+		},
+		{
+			"event": 28,
+			"event-label": "On After Keystroke"
+		},
+		{
+			"event": 40,
+			"event-label": "On Load Record"
+		},
+		{
+			"event": 45,
+			"event-label": "On After Edit"
+		},
+		{
+			"event": 46,
+			"event-label": "On Begin Drag Over"
+		},
+		{
+			"event": 54,
+			"event-label": "On bound variable change"
+		},
+		{
+			"event": 55,
+			"event-label": "On Mac toolbar button"
+		},
+		{
+			"event": 56,
+			"event-label": "On Page Change"
+		},
+		{
+			"event": 59,
+			"event-label": "On Picture Scroll"
+		}
+	],
 	"fixedWidth": false,
 	"minWidth": 0,
 	"maxWidth": 32767,
@@ -24,7 +138,7 @@
 			"action": "0",
 			"action_label": "Object No standard action",
 			"autoSpellcheck": false,
-			"width": 4,
+			"width": 0,
 			"height": 15,
 			"borderLineStyle": 6,
 			"borderLineStyle_label": "Border System",
@@ -94,7 +208,7 @@
 			"action": "0",
 			"action_label": "Object No standard action",
 			"autoSpellcheck": false,
-			"width": 4,
+			"width": 0,
 			"height": 15,
 			"borderLineStyle": 6,
 			"borderLineStyle_label": "Border System",
@@ -195,8 +309,8 @@
 			"choiceList": 0,
 			"requiredList": 0,
 			"excludedList": 0,
-			"maximumValue": "1904-01-01T00:00:00Z",
-			"minimumValue": "1904-01-01T00:00:00Z",
+			"maximumValue": "1904-01-01T08:00:00Z",
+			"minimumValue": "1904-01-01T08:00:00Z",
 			"placeholder": "",
 			"printFrame": false,
 			"subformPrintFrame": 0,
@@ -654,7 +768,7 @@
 			"action": "0",
 			"action_label": "Object No standard action",
 			"autoSpellcheck": false,
-			"width": 4,
+			"width": 0,
 			"height": 15,
 			"borderLineStyle": 6,
 			"borderLineStyle_label": "Border System",
@@ -863,7 +977,7 @@
 			"action": "0",
 			"action_label": "Object No standard action",
 			"autoSpellcheck": false,
-			"width": 4,
+			"width": 0,
 			"height": 15,
 			"borderLineStyle": 6,
 			"borderLineStyle_label": "Border System",
@@ -1268,7 +1382,7 @@
 			"action": "0",
 			"action_label": "Object No standard action",
 			"autoSpellcheck": false,
-			"width": 4,
+			"width": 0,
 			"height": 15,
 			"borderLineStyle": 6,
 			"borderLineStyle_label": "Border System",
@@ -1747,8 +1861,8 @@
 			"type": 14,
 			"type_label": "Object type picture popup menu",
 			"variableName": "Picture Popup Menu",
-			"variableType": 5,
-			"variableType_label": "Is Undefined",
+			"variableType": 9,
+			"variableType_label": "Is LongInt",
 			"action": "0",
 			"action_label": "Object No standard action",
 			"autoSpellcheck": false,
@@ -3393,7 +3507,7 @@
 			"action": "0",
 			"action_label": "Object No standard action",
 			"autoSpellcheck": false,
-			"width": 4,
+			"width": 0,
 			"height": 15,
 			"borderLineStyle": 6,
 			"borderLineStyle_label": "Border System",
@@ -3414,6 +3528,75 @@
 			"fontSize": 12,
 			"fontStyle": 0,
 			"format": "\u0001",
+			"helpTip": "",
+			"horizontalAlignment": 1,
+			"horizontalAlignment_label": "Align default",
+			"indicatorType": 0,
+			"indicatorType_label": "",
+			"keyboardLayout": "",
+			"listName": "",
+			"choiceList": 0,
+			"requiredList": 0,
+			"excludedList": 0,
+			"maximumValue": 0,
+			"minimumValue": 0,
+			"placeholder": "",
+			"printFrame": false,
+			"subformPrintFrame": 0,
+			"subformPrintFrame_label": "",
+			"horizontalSizing": 0,
+			"horizontalSizing_label": "Resize horizontal none",
+			"verticalSizing": 0,
+			"verticalSizing_label": "Resize vertical none",
+			"foregroundColor": -1,
+			"foregroundColor_label": "Foreground color",
+			"backgroundColor": -2,
+			"backgroundColor_label": "Background color",
+			"altBackgroundColor": 0,
+			"altBackgroundColor_hex": "0x00000000",
+			"horizontalScrollBar": false,
+			"verticalScrollBar": false,
+			"shortcutKey": "",
+			"shortcutModifiers": 0,
+			"styleSheet": "__automatic__",
+			"orientation": 0,
+			"threeStates": false,
+			"title": "",
+			"verticalAlignment": 1,
+			"verticalAlignment_label": "Align default",
+			"visible": true
+		},
+		"Variable3": {
+			"objectName": "Variable3",
+			"type": 3,
+			"type_label": "Object type text input",
+			"variableName": "Variable3",
+			"variableType": 5,
+			"variableType_label": "Is Undefined",
+			"action": "0",
+			"action_label": "Object No standard action",
+			"autoSpellcheck": false,
+			"width": 0,
+			"height": 15,
+			"borderLineStyle": 6,
+			"borderLineStyle_label": "Border System",
+			"contextMenu": false,
+			"left": 22,
+			"top": 369,
+			"right": 114,
+			"bottom": 385,
+			"draggable": false,
+			"automaticDrag": false,
+			"droppable": true,
+			"automaticDrop": false,
+			"enabled": true,
+			"enterable": true,
+			"filter": "",
+			"focusRectangleInvisible": false,
+			"font": "Segoe UI",
+			"fontSize": 12,
+			"fontStyle": 0,
+			"format": "",
 			"helpTip": "",
 			"horizontalAlignment": 1,
 			"horizontalAlignment_label": "Align default",
