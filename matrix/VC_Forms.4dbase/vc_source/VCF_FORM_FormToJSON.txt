@@ -114,6 +114,17 @@ If (Not(Nil($currentObjectPointer_p)))
 RESOLVE POINTER($currentObjectPointer_p;$varName_t;$tableNum_l;$fieldNum_l)
 Case of 
 : ($varName_t#"")// Variable.
+// If a Form Object has no value in the Variable Name property, 4D assigns 
+// one automatically when the form is loaded via FORM LOAD. The value 
+// changes every time the form is loaded. This seems somewhat useless 
+// information in a Revision Control context so I will ignore these values.
+// I would rather know that the value is blank. 
+// As far as I'm aware, you should never have a legitimate Object with a 
+// local variable name so it seems safe to filter out anything that starts 
+// with $ (for example 4D will use $form.34.5E).
+If ($varName_t="$@")
+$varName_t:=""
+End if 
 OB SET($currentObject_o;"variableName";$varName_t)
 $variableType_l:=Type($currentObjectPointer_p->)// This is used for Max/Min value later.
 VCF_OBJ_SetPropWithLabel ($currentObjectName_t;"variableType";$currentObject_o)

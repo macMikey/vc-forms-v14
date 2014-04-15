@@ -1,7 +1,17 @@
 ﻿//%attributes = {"lang":"en"} comment added and reserved by 4D.
+// --[HEADERSTART]-------------------------------------
 // User name (OS): Joshua Fletcher
 // Date and time: 04/11/14, 12:10:10
-// Thomas reported a problem with dynamic variables today. I have not reproduced it yet, have asked for clarification.
+//    Thomas reported a problem with dynamic variables
+//    today. I have not reproduced it yet, have asked
+//    for clarification.
+//
+// Date and time: 04/14/14, 13:41:27
+//    Thomas was refering to form objects with no
+//    variable name, not dynamic objects. But I'll
+//    leave this code in anyway in case dynamic objects
+//    show up in FORM GET OBJECTS.
+// --[HEADEREND]---------------------------------------
 C_LONGINT($formEvent_l)
 C_POINTER($objectPointer_p)
 $formEvent_l:=Form event
