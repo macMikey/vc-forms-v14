@@ -2,9 +2,17 @@
 
 ## READ THIS FIRST!
 
-This component is not ready for primetime. Only use it if you are willing to deal with major bugs and possibly the need to start over from scratch. It has the bare minimum functionality (the ability to export the forms, the ability to export only the changed forms).
+This component has been retired. The features will be integrated into [VC_Framework v14](https://github.com/4D/vc-framework-v14). I am leaving it published because at some point VC_Framework will most likely require the R-version path of 4D.  This way users of normal v14 can still get form export.
+
+
+## Introduction
+
+This component is not ready for primetime. Only use it if you are willing to deal with bugs and possibly the need to start the export over from scratch. It has the bare minimum functionality (the ability to export the forms, the ability to export only the changed forms). It does not delete exported forms, for example.
 
 Also, 4D v14 is REQUIRED. VC_Forms relies on new commands in v14.
+
+Finally [VC_Framework v14 v53353](https://github.com/4D/vc-framework-v14/releases/tag/v53533) or lower is required.  Newer releases will not be compatible.
+
 
 ## Description
 
@@ -25,7 +33,7 @@ The VC_Forms component will call these methods prior to saving/deleting the meth
 
 ## Usage
 
-It is HIGHLY recommended that you already have [VC_Framework v14](https://github.com/4D/vc-framework-v14) installed and activated prior to installing VC_Forms.  VC_Forms can technically be used on its own but this ability isn't fully implemented yet.
+It is HIGHLY recommended that you already have [VC_Framework v14 v53353](https://github.com/4D/vc-framework-v14/releases/tag/v53533) installed and activated prior to installing VC_Forms.  VC_Forms can technically be used on its own but this ability isn't fully implemented yet.
 
 Install the component (do NOT install an alias, you must install the component), launch the host database in 4D, and open a method if none are open. This will launch the stored procedure to manage form export.
 
