@@ -2,7 +2,7 @@
 
 ## READ THIS FIRST!
 
-This component has been retired. The features will be integrated into [VC_Framework v14](https://github.com/4D/vc-framework-v14). I am leaving it published because at some point VC_Framework will most likely require the R-version path of 4D.  This way users of normal v14 can still get form export.
+This component has been retired. The features have been integrated into [VC_Framework v14](https://github.com/4D/vc-framework-v14). I am leaving it published because at some point VC_Framework will most likely require the R-version path of 4D.  This way users of normal v14 can still get form export if they want.
 
 
 ## Introduction
